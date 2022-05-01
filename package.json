@@ -19,11 +19,23 @@
   "homepage": "https://github.com/yuyinws/vercel-serverless-ts-template#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "typescript": "^4.6.4"
+    "cheerio": "^1.0.0-rc.10",
+    "typescript": "^4.6.4",
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.22.0",
+    "@types/cheerio": "^0.22.31",
+    "@types/tunnel": "^0.0.3",
+    "@types/valid-url": "^1.0.3",
     "@vercel/node": "^1.15.0",
-    "eslint": "^8.14.0"
+    "eslint": "^8.14.0",
+    "metascraper": "^5.29.3",
+    "metascraper-author": "^5.29.3",
+    "metascraper-description": "^5.29.3",
+    "metascraper-image": "^5.29.3",
+    "metascraper-logo": "^5.29.3",
+    "metascraper-title": "^5.29.3",
+    "tunnel": "^0.0.6"
   }
 }
