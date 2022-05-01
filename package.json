@@ -1,0 +1,29 @@
+{
+  "name": "vercel-serverless-ts-template",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "vercel-serverless-ts-template",
+  "license": "MIT",
+  "author": "yuyinws",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuyinws/vercel-serverless-ts-template.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/yuyinws/vercel-serverless-ts-template/issues"
+  },
+  "homepage": "https://github.com/yuyinws/vercel-serverless-ts-template#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "typescript": "^4.6.4"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.22.0",
+    "@vercel/node": "^1.15.0",
+    "eslint": "^8.14.0"
+  }
+}
