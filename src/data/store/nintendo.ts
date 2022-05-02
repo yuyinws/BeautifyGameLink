@@ -16,6 +16,6 @@ export function nintendo(html: string): CrawlerData {
     price,
     gameStoreName: 'NINTENDO',
     percentage,
-    logo: 'https://s2.loli.net/2022/05/02/YM12ZgBVfN3nkdp.png',
+    logo: 'https://cdn.jsdelivr.net/gh/yuyinws/static/imgs/nintendo.png',
   }
 }
