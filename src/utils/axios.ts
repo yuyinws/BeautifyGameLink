@@ -23,7 +23,7 @@ instance.interceptors.response.use((response) => {
   return Promise.reject(err)
 })
 
-const _axios = async (config: AxiosRequestConfig): Promise<MyResponseType> => {
+export const _axios = async (config: AxiosRequestConfig): Promise<MyResponseType> => {
   try {
     const data = await instance.request<MyResponseType>(config)
     return data
@@ -32,8 +32,4 @@ const _axios = async (config: AxiosRequestConfig): Promise<MyResponseType> => {
     // console.log(error)
     throw new Error(error as string)
   }
-}
-
-export {
-  _axios,
 }

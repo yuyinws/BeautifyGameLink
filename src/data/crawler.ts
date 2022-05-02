@@ -2,13 +2,14 @@ import { epic, steam } from './store/index'
 
 export interface CrawlerData {
   originPrice: string
-  price: string
-  percentage: string
+  price: string | null
+  percentage: string | null
   title: string
   description: string
+  gameStoreName: GameStoreName
 }
 
-type GameStoreName = 'UN_KNOWN' | 'STEAM' | 'GOG' | 'EPIC'
+export type GameStoreName = 'UN_KNOWN' | 'STEAM' | 'GOG' | 'EPIC'
 
 export function getCrawerData(html: string, targetUrl: string): CrawlerData {
   switch (getStoreName(targetUrl)) {

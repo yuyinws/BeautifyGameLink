@@ -1,16 +1,4 @@
 {
-  "headers": [{
-    "source": "/(.*)",
-    "headers": [{
-        "key": "Cache-Control",
-        "value": "public, s-maxage=86400, max-age=60, stale-while-revalidate"
-      },
-      {
-        "key": "Access-Control-Allow-Origin",
-        "value": "*"
-      }
-    ]
-  }],
   "rewrites":[
     {
       "source":"/link",

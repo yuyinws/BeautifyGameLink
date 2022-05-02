@@ -1,10 +1,12 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import validUrl from 'valid-url'
-import { _axios, getCrawerData, getMetaData } from '../src'
+import { LinkSvg, _axios, getCrawerData, getMetaData, imgurl2Base64 } from '../src'
 import type { MetaData } from '../src'
 
 export default async (request: VercelRequest, response: VercelResponse) => {
   try {
+    response.setHeader('Content-Type', 'image/svg+xml')
+    response.setHeader('Cache-Control', `public, max-age=${300}`)
     const targetUrl = request.query.url as string
     validUrl.isUri(targetUrl)
     const { data: html } = await _axios({
@@ -12,8 +14,12 @@ export default async (request: VercelRequest, response: VercelResponse) => {
       method: 'get',
     })
     const metadata: MetaData = await getMetaData(html, targetUrl)
-    const crawlerData = getCrawerData(html, targetUrl)
-    response.status(200).send({ ...metadata, ...crawlerData })
+    const { gameStoreName } = getCrawerData(html, targetUrl)
+    const coverBase64 = await imgurl2Base64(metadata.image!)
+    const linkSvg = new LinkSvg(gameStoreName, coverBase64)
+    linkSvg.setStyle()
+    // response.status(200).send({ ...metadata, ...crawlerData })
+    response.send(linkSvg.render())
   }
   catch (error) {
     response.status(500).send(error)
