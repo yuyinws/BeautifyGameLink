@@ -12,6 +12,11 @@ export function getStyle(gameStoreName: GameStoreName): Style {
         bgColor: '#202020',
         percentageBg: '#DD3FE4',
       }
+    case 'NINTENDO':
+      return {
+        bgColor: '#dc0000',
+        percentageBg: '#dc0000',
+      }
     default:
       return {
         bgColor: '#202020',

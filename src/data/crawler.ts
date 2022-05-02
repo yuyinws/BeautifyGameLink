@@ -1,4 +1,4 @@
-import { epic, steam } from './store/index'
+import { epic, nintendo, steam } from './store/index'
 
 export interface CrawlerData {
   originPrice: string
@@ -10,7 +10,7 @@ export interface CrawlerData {
   logo: string
 }
 
-export type GameStoreName = 'UN_KNOWN' | 'STEAM' | 'GOG' | 'EPIC'
+export type GameStoreName = 'UN_KNOWN' | 'STEAM' | 'GOG' | 'EPIC' | 'NINTENDO'
 
 export function getCrawerData(html: string, targetUrl: string): CrawlerData {
   switch (getStoreName(targetUrl)) {
@@ -18,6 +18,8 @@ export function getCrawerData(html: string, targetUrl: string): CrawlerData {
       return steam()
     case 'EPIC':
       return epic(html)
+    case 'NINTENDO':
+      return nintendo(html)
     default:
       return epic(html)
   }
@@ -31,6 +33,8 @@ function getStoreName(url: string): GameStoreName {
     return 'GOG'
   else if (urlObj.hostname.includes('epicgames.com'))
     return 'EPIC'
+  else if (urlObj.hostname.includes('nintendo.com'))
+    return 'NINTENDO'
   else
     return 'UN_KNOWN'
 }

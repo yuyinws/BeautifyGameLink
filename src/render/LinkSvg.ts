@@ -38,10 +38,21 @@ export class LinkSvg {
     this.style = getStyle(this.gameStoreName)
   }
 
+  public formatGameStoreName(gameStoreName: GameStoreName) {
+    switch (gameStoreName) {
+      case 'EPIC':
+        return 'Epic Games'
+      case 'NINTENDO':
+        return 'Nintendo'
+      default:
+        return 'UN_KNOWN'
+    }
+  }
+
   public setPriceDiv() {
     this.percentageDiv = this.percentage ? `<div class="percentage">${this.percentage}</div>` : ''
     this.priceDiv = this.price ? `<div class="text">${this.price}</div>` : ''
-    this.originPriceDiv = this.percentage
+    this.originPriceDiv = this.originPrice
       ? `<div class="subText">${this.originPrice}</div>`
       : `<div class="text">${this.originPrice}</div>`
   }
@@ -112,7 +123,7 @@ export class LinkSvg {
 
       <image class="logo" x="10" y="172" xlink:href="${this.logoBase64}" ></image>
 
-      <foreignObject x="290" width="400" height="160">
+      <foreignObject x="300" width="400" height="150">
         <body xmlns="http://www.w3.org/1999/xhtml">
           <div class="text" style="font-size:18px">${this.title}</div>
           <div class="text" style="font-size:14px;margin-top:5px">${this.description}</div>
@@ -123,7 +134,7 @@ export class LinkSvg {
           <body xmlns="http://www.w3.org/1999/xhtml">
             <div class="bottom-wrap">
               <div style="display:flex;align-items:center;gap:5px">
-                <div class="text">Epic Games</div>
+                <div class="text">${this.formatGameStoreName(this.gameStoreName)}</div>
               </div>
               <div class="price">
                 ${this.percentageDiv}
