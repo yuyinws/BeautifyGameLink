@@ -13,12 +13,13 @@ export default async (request: VercelRequest, response: VercelResponse) => {
       url: targetUrl,
     })
     const metadata: MetaData = await getMetaData(html, targetUrl)
-    const { gameStoreName, title, description, logo } = getCrawerData(html, targetUrl)
+    const { gameStoreName, title, description, logo, originPrice, price, percentage } = getCrawerData(html, targetUrl)
 
     const coverBase64 = await imgurl2Base64(metadata.image!)
     const logoBase64 = await imgurl2Base64(logo)
-    const linkSvg = new LinkSvg(gameStoreName, coverBase64, logoBase64, title, description)
+    const linkSvg = new LinkSvg(gameStoreName, coverBase64, logoBase64, title, description, originPrice, price, percentage)
     linkSvg.setStyle()
+    linkSvg.setPriceDiv()
     // response.status(200).send({ ...metadata, ...crawlerData })
     response.send(linkSvg.render())
   }

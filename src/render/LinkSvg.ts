@@ -17,17 +17,34 @@ export class LinkSvg {
   private title = ''
   private description = ''
   private logoBase64 = ''
+  private originPrice = ''
+  private price: string | null = ''
+  private percentage: string | null = ''
+  private percentageDiv = ''
+  private priceDiv = ''
+  private originPriceDiv = ''
 
-  public constructor(gameStoreName: GameStoreName, coverBase64: string, logoBase64: string, title: string, description: string) {
+  public constructor(gameStoreName: GameStoreName, coverBase64: string, logoBase64: string, title: string, description: string, originPrice: string, price: string | null, percentage: string | null) {
     this.coverBase64 = JPEG_PREFIX + coverBase64
     this.gameStoreName = gameStoreName
     this.title = title
     this.description = description
     this.logoBase64 = ICO_PREFIX + logoBase64
+    this.originPrice = originPrice
+    this.price = price
+    this.percentage = percentage
   }
 
   public setStyle() {
     this.style = getStyle(this.gameStoreName)
+  }
+
+  public setPriceDiv() {
+    this.percentageDiv = this.percentage ? `<div class="percentage">${this.percentage}</div>` : ''
+    this.priceDiv = this.price ? `<div class="text">${this.price}</div>` : ''
+    this.originPriceDiv = this.percentage
+      ? `<div class="subText">${this.originPrice}</div>`
+      : `<div class="text">${this.originPrice}</div>`
   }
 
   public render() {
@@ -66,6 +83,11 @@ export class LinkSvg {
           color:white
         }
 
+        .subText {
+          color:#F5F5F599;
+          text-decoration:line-through;
+        }
+
         .bottom-wrap {
           display:flex;
           align-items:center;
@@ -88,7 +110,9 @@ export class LinkSvg {
       <rect fill="${this.style.bgColor}"  width="100%" height="100%" />
 
       <rect rx="10" height="150" width="280" x="10" y="10" fill="url(#raduisImage)"></rect>
-      
+
+      <image class="logo" x="10" y="172" xlink:href="${this.logoBase64}" ></image>
+
       <foreignObject x="290" width="400" height="160">
         <body xmlns="http://www.w3.org/1999/xhtml">
           <div class="text" style="font-size:18px">${this.title}</div>
@@ -96,22 +120,21 @@ export class LinkSvg {
         </body>
       </foreignObject>
 
-        <foreignObject width="700" height="50" y="165">
+        <foreignObject width="660" x="30" height="50" y="165">
           <body xmlns="http://www.w3.org/1999/xhtml">
             <div class="bottom-wrap">
-              <div>
-                <img class="logo" src="${this.logoBase64}" />
+              <div style="display:flex;align-items:center;gap:5px">
+                <div class="text">Epic Games</div>
               </div>
               <div class="price">
-                <div class="percentage">-20%</div>
-                <div class="text">US$59.99</div>
-                <div class="text">US$39.99</div>
+                ${this.percentageDiv}
+                ${this.originPriceDiv}
+                ${this.priceDiv}
               </div>
             </div>
           </body>
         </foreignObject>
-        
-        </svg>
+    </svg>
     `
   }
 }
