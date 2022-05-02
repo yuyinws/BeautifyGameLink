@@ -29,6 +29,6 @@ export function epic(html: string): CrawlerData {
     title,
     description,
     gameStoreName: 'EPIC',
-    logo: 'https://static-assets-prod.epicgames.com/epic-store/static/favicon.ico',
+    logo: 'https://s3.bmp.ovh/imgs/2022/05/02/ee20561053105753.png',
   }
 }

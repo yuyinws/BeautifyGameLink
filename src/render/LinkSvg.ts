@@ -4,7 +4,6 @@ import { getStyle } from './style'
 
 const JPEG_PREFIX = 'data:image/jpeg;base64,'
 const PNG_PREFIX = 'data:image/png;base64,'
-const ICO_PREFIX = 'data:image/x-ico;base64,'
 
 export class LinkSvg {
   private coverBase64 = ''
@@ -29,7 +28,7 @@ export class LinkSvg {
     this.gameStoreName = gameStoreName
     this.title = title
     this.description = description
-    this.logoBase64 = ICO_PREFIX + logoBase64
+    this.logoBase64 = PNG_PREFIX + logoBase64
     this.originPrice = originPrice
     this.price = price
     this.percentage = percentage
