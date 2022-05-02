@@ -11,12 +11,13 @@ export default async (request: VercelRequest, response: VercelResponse) => {
     validUrl.isUri(targetUrl)
     const { data: html } = await _axios({
       url: targetUrl,
-      method: 'get',
     })
     const metadata: MetaData = await getMetaData(html, targetUrl)
-    const { gameStoreName } = getCrawerData(html, targetUrl)
+    const { gameStoreName, title, description, logo } = getCrawerData(html, targetUrl)
+
     const coverBase64 = await imgurl2Base64(metadata.image!)
-    const linkSvg = new LinkSvg(gameStoreName, coverBase64)
+    const logoBase64 = await imgurl2Base64(logo)
+    const linkSvg = new LinkSvg(gameStoreName, coverBase64, logoBase64, title, description)
     linkSvg.setStyle()
     // response.status(200).send({ ...metadata, ...crawlerData })
     response.send(linkSvg.render())

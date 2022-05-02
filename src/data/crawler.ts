@@ -7,6 +7,7 @@ export interface CrawlerData {
   title: string
   description: string
   gameStoreName: GameStoreName
+  logo: string
 }
 
 export type GameStoreName = 'UN_KNOWN' | 'STEAM' | 'GOG' | 'EPIC'
