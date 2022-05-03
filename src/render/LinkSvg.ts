@@ -129,6 +129,16 @@ export class LinkSvg {
           overflow: hidden;
           text-overflow: ellipsis;
         }
+
+        .title {
+          font-size: 18px;
+          color: #F3F4F6;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       </style>
 
 
@@ -145,7 +155,7 @@ export class LinkSvg {
           <div class="content-wrap">
             <img class="cover" src="${this.coverBase64}"></img>
             <div>
-              <div class="text" style="font-size:18px;color:#F3F4F6">${this.title}</div>
+              <div class="title">${this.title}</div>
               <div class="text description">${this.description}</div>
             </div>
           </div>

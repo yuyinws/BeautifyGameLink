@@ -21,7 +21,7 @@ export function epic(html: string): CrawlerData {
     percentage = priceArr[0]
   }
   const title = $('[data-component="PDPTitleHeader"] [data-component="Text"]').first().text()
-  const description = $('[data-component="AboutSectionLayout"] [data-component="Text"]').first().text()
+  const description = $('[data-component="AboutSectionLayout"] [data-component="Text"]').text()
   return {
     percentage,
     originPrice,
