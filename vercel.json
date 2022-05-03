@@ -5,7 +5,7 @@
       "destination":"/api/index.ts"
     },
     {
-      "source":"/",
+      "source":"https://beautify-game-link-ui.vercel.app/",
       "destination":"index.html"
     }
   ]
