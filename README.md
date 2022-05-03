@@ -25,6 +25,6 @@
 [![Epic](https://game.yuy1n.io/link?url=https://store.epicgames.com/zh-CN/p/star-wars-jedi-fallen-order)](https://store.epicgames.com/zh-CN/p/star-wars-jedi-fallen-order)
 
 
-[![Nintendo](https://game.yuy1n.io/link?url=https://store.nintendo.com.hk/70010000019943)](https://store.nintendo.com.hk/70010000019943))
+[![Nintendo](https://game.yuy1n.io/link?url=https://store.nintendo.com.hk/70010000019943)](https://store.nintendo.com.hk/70010000019943)
 
 
