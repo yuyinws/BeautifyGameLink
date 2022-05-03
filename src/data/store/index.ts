@@ -1,3 +1,6 @@
 export * from './steam'
 export * from './epic'
 export * from './nintendo'
+export * from './xbox'
+export * from './psn'
+export * from './ubi'

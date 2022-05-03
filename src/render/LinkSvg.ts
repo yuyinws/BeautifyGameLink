@@ -44,6 +44,8 @@ export class LinkSvg {
         return 'Epic Games'
       case 'NINTENDO':
         return 'Nintendo'
+      case 'XBOX':
+        return 'Xbox'
       default:
         return 'UN_KNOWN'
     }
@@ -52,7 +54,7 @@ export class LinkSvg {
   public setPriceDiv() {
     this.percentageDiv = this.percentage ? `<div class="percentage">${this.percentage}</div>` : ''
     this.priceDiv = this.price ? `<div class="text">${this.price}</div>` : ''
-    this.originPriceDiv = this.originPrice
+    this.originPriceDiv = this.price
       ? `<div class="subText">${this.originPrice}</div>`
       : `<div class="text">${this.originPrice}</div>`
   }
@@ -60,7 +62,7 @@ export class LinkSvg {
   public render() {
     return `
       <svg
-        width="700" height="210"
+        width="580" height="200"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://www.w3.org/2000/svg">
       >
@@ -69,24 +71,19 @@ export class LinkSvg {
           display: flex;
           gap:10px;
           align-items: center;
+          color:white;
         }
 
         .percentage {
           width: 50px;
           height: 25px;
-          background-color: #DD3FE4;
+          background-color: ${this.style.percentageBg};
           display: flex;
           align-items: center;
           justify-content: center;
           border-radius: 5px;
           font-size: 14px;
           color:white
-        }
-
-        .cover {
-          height:180px;
-          width:300px;
-          border-radius: 10px;
         }
 
         .text {
@@ -101,49 +98,67 @@ export class LinkSvg {
         .bottom-wrap {
           display:flex;
           align-items:center;
-          justify-content:space-between;
+          margin-top:12px;
+          justify-content: space-between;
+        }
+
+        .content-wrap {
+          display:flex;
+          gap:10px;
         }
 
         .logo {
           width:25px;
           height:25px;
         }
+
+        .cover {
+          width:180px;
+          height:145px;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+
+        .description {
+          font-size: 14px;
+          margin-top: 5px;
+          height: 112px;
+          display: -webkit-box;
+          -webkit-line-clamp: 6;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       </style>
 
 
       <defs>
         <pattern id="raduisImage" patternUnits="userSpaceOnUse" width="300" height="180">
-          <image height="180" width="300" xlink:href="${this.coverBase64}"></image>
+          <image height="180" width="180" xlink:href="${this.coverBase64}"></image>
         </pattern>
       </defs>
 
-      <rect fill="${this.style.bgColor}"  width="100%" height="100%" />
+      <rect rx="5" fill="${this.style.bgColor}"  width="100%" height="100%" />
 
-      <rect rx="10" height="150" width="280" x="10" y="10" fill="url(#raduisImage)"></rect>
-
-      <image class="logo" x="10" y="172" xlink:href="${this.logoBase64}" ></image>
-
-      <foreignObject x="300" width="400" height="150">
+      <foreignObject width="100%" height="200">
         <body xmlns="http://www.w3.org/1999/xhtml">
-          <div class="text" style="font-size:18px">${this.title}</div>
-          <div class="text" style="font-size:14px;margin-top:5px">${this.description}</div>
+          <div class="content-wrap">
+            <img class="cover" src="${this.coverBase64}"></img>
+            <div>
+              <div class="text" style="font-size:18px;color:#F3F4F6">${this.title}</div>
+              <div class="text description">${this.description}</div>
+            </div>
+          </div>
+          <div class="bottom-wrap">
+            <img class="logo" src="${this.logoBase64}"></img>
+            <div class="price">
+              ${this.percentageDiv}
+              ${this.originPriceDiv}
+              ${this.priceDiv}
+            </div>
+          </div>
         </body>
       </foreignObject>
-
-        <foreignObject width="660" x="30" height="50" y="165">
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <div class="bottom-wrap">
-              <div style="display:flex;align-items:center;gap:5px">
-                <div class="text">${this.formatGameStoreName(this.gameStoreName)}</div>
-              </div>
-              <div class="price">
-                ${this.percentageDiv}
-                ${this.originPriceDiv}
-                ${this.priceDiv}
-              </div>
-            </div>
-          </body>
-        </foreignObject>
     </svg>
     `
   }

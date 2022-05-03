@@ -29,6 +29,6 @@ export function epic(html: string): CrawlerData {
     title,
     description,
     gameStoreName: 'EPIC',
-    logo: 'https://cdn.jsdelivr.net/gh/yuyinws/static/imgs/epic.png',
+    logo: 'https://cdn.jsdelivr.net/gh/yuyinws/static/imgs/epic_1.png',
   }
 }

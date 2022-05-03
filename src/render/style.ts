@@ -17,6 +17,26 @@ export function getStyle(gameStoreName: GameStoreName): Style {
         bgColor: '#dc0000',
         percentageBg: '#dc0000',
       }
+    case 'XBOX':
+      return {
+        bgColor: '#277800',
+        percentageBg: '#277800',
+      }
+    case 'PSN':
+      return {
+        bgColor: '#2f7dfb',
+        percentageBg: '#2f7dfb',
+      }
+    case 'UBI':
+      return {
+        bgColor: '#2c8aa5',
+        percentageBg: '#f68200',
+      }
+    case 'STEAM':
+      return {
+        bgColor: '#1d2839',
+        percentageBg: '#4f6b1c',
+      }
     default:
       return {
         bgColor: '#202020',
