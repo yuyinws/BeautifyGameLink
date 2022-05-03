@@ -38,25 +38,9 @@ export class LinkSvg {
     this.style = getStyle(this.gameStoreName)
   }
 
-  public formatGameStoreName(gameStoreName: GameStoreName) {
-    switch (gameStoreName) {
-      case 'EPIC':
-        return 'Epic Games'
-      case 'NINTENDO':
-        return 'Nintendo'
-      case 'XBOX':
-        return 'Xbox'
-      default:
-        return 'UN_KNOWN'
-    }
-  }
-
   public setPriceDiv() {
     this.percentageDiv = this.percentage ? `<div class="percentage">${this.percentage}</div>` : ''
     this.priceDiv = this.price ? `<div class="text">${this.price}</div>` : ''
-    // this.originPriceDiv = this.price
-    //   ? `<div class="subText">${this.originPrice}</div>`
-    //   : `<div class="text">${this.originPrice}</div>`
     if (this.originPrice && this.price)
       this.originPriceDiv = `<div class="subText">${this.originPrice}</div>`
     else

@@ -1,4 +1,4 @@
-import { epic, nintendo, psn, steam, ubi, xbox } from './store/index'
+import { epic, nintendo, psn, steam, ubi, unknow, xbox } from './store/index'
 
 export interface CrawlerData {
   originPrice: string
@@ -28,7 +28,7 @@ export function getCrawerData(html: string, targetUrl: string): CrawlerData {
     case 'UBI':
       return ubi(html)
     default:
-      return epic(html)
+      return unknow()
   }
 }
 
