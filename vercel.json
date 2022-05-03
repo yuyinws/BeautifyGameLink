@@ -3,7 +3,9 @@
     {
       "source":"/link",
       "destination":"/api/index.ts"
-    },
+    }
+  ],
+  "redirects":[
     {
       "source":"/",
       "destination":"https://beautify-game-link-ui.vercel.app/"
