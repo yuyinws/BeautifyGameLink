@@ -121,6 +121,7 @@ export class LinkSvg {
         .title {
           font-size: 18px;
           color: #F3F4F6;
+          font-weight:bold;
           display: -webkit-box;
           -webkit-line-clamp: 1;
           -webkit-box-orient: vertical;
