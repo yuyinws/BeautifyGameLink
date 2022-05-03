@@ -54,9 +54,13 @@ export class LinkSvg {
   public setPriceDiv() {
     this.percentageDiv = this.percentage ? `<div class="percentage">${this.percentage}</div>` : ''
     this.priceDiv = this.price ? `<div class="text">${this.price}</div>` : ''
-    this.originPriceDiv = this.price
-      ? `<div class="subText">${this.originPrice}</div>`
-      : `<div class="text">${this.originPrice}</div>`
+    // this.originPriceDiv = this.price
+    //   ? `<div class="subText">${this.originPrice}</div>`
+    //   : `<div class="text">${this.originPrice}</div>`
+    if (this.originPrice && this.price)
+      this.originPriceDiv = `<div class="subText">${this.originPrice}</div>`
+    else
+      this.originPriceDiv = `<div class="text">${this.originPrice}</div>`
   }
 
   public render() {

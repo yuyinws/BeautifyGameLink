@@ -3,8 +3,8 @@ import type { CrawlerData } from '../crawler'
 
 export function psn(html: string): CrawlerData {
   const $ = cheerio.load(html)
-  const title = $('.game-title').text().replaceAll('&', ' ')
-  const description = $('.textblock,.parbase .text-block p').first().text().replaceAll('&', ' ')
+  const title = $('.game-title').text()
+  const description = $('.textblock,.parbase .text-block p').first().text()
   const originPrice = $('[data-qa="mfeCtaMain#offer0#originalPrice"]').text()
   const price = $('[data-qa="mfeCtaMain#offer0#finalPrice"]').text()
   const percentage = ''
