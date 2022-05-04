@@ -2,8 +2,9 @@ import cheerio from 'cheerio'
 import type { CrawlerData } from '../crawler'
 export function steam(html: string): CrawlerData {
   const $ = cheerio.load(html)
-  const title = $('.apphub_AppName').first().text()
-  const description = $('.game_description_snippet').text()
+  // 适配bundle
+  const title = $('.apphub_AppName').first().text() || $('.pageheader').text()
+  const description = $('.game_description_snippet').text() || $('#game_area_description').text()
   const originPrice = $('.discount_original_price').first().text()
   const price = $('.discount_final_price').first().text()
   const percentage = $('.discount_pct').first().text()
